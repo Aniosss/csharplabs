@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AircraftApp.ViewModels"
+             x:Class="AircraftApp.Views.AircraftView">
+  <UserControl.DataContext>
+    <vm:AircraftViewModel/>
+  </UserControl.DataContext>
+  <StackPanel Margin="10" Spacing="10">
+    <TextBlock Text="Авиасимулятор" FontSize="20" FontWeight="Bold"/>
+
+    <Border BorderThickness="1" CornerRadius="4" Padding="5" Margin="0,5">
+      <StackPanel Spacing="5">
+        <TextBlock Text="Самолёт" FontWeight="Bold"/>
+        <TextBlock Text="Длина взлётной полосы:"/>
+        <TextBox Text="{Binding RunwayLengthInput}"/>
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Content="Взлёт" Command="{Binding AirplaneTakeOffCommand}"/>
+          <Button Content="Посадка" Command="{Binding AirplaneLandCommand}"/>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <Border BorderThickness="1" CornerRadius="4" Padding="5" Margin="0,5">
+      <StackPanel Spacing="5">
+        <TextBlock Text="Вертолёт" FontWeight="Bold"/>
+        <StackPanel Orientation="Horizontal" Spacing="5">
+          <Button Content="Взлёт" Command="{Binding HelicopterTakeOffCommand}"/>
+          <Button Content="Посадка" Command="{Binding HelicopterLandCommand}"/>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <Border BorderThickness="1" CornerRadius="4" Padding="5" Margin="0,5">
+      <StackPanel Spacing="5">
+        <TextBlock Text="Логи" FontWeight="Bold"/>
+        <ListBox ItemsSource="{Binding LogMessages}" Height="150"/>
+
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>
