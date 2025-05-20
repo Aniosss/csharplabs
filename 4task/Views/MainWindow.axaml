@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="ReflectionInvokeApp.Views.MainWindow"
+        Title="Reflection Invoker" Width="800" Height="600">
+  <StackPanel Margin="10" Spacing="8">
+    <StackPanel Orientation="Horizontal" Spacing="5">
+      <TextBox Width="400" Watermark="Assembly path" Text="{Binding AssemblyPath}"/>
+      <Button Content="Load" Command="{Binding LoadAssemblyCommand}"/>
+    </StackPanel>
+
+    <ComboBox Items="{Binding ClassNames}" SelectedItem="{Binding SelectedClass}" Width="400"/>
+    <ComboBox Items="{Binding Methods}" SelectedItem="{Binding SelectedMethod}" Width="400" DisplayMemberPath="Name"/>
+
+    <ItemsControl Items="{Binding SelectedMethod.Parameters}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="5">
+            <TextBlock Text="{Binding Name}" Width="120"/>
+            <TextBox Text="{Binding Value}" Width="200"/>
+          </StackPanel>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+    <Button Content="Execute" Command="{Binding ExecuteMethodCommand}" Width="100"/>
+    <TextBox Text="{Binding Output}" AcceptsReturn="True" Height="200"/>
+  </StackPanel>
+</Window>
