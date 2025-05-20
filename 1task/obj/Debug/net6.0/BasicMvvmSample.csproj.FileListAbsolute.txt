@@ -268,3 +268,4 @@ C:\Users\user\Documents\c_sharp\1task\obj\Debug\net6.0\BasicMvvmSample.pdb
 C:\Users\user\Documents\c_sharp\1task\obj\Debug\net6.0\BasicMvv.337554D6.Up2Date
 C:\Users\user\Documents\c_sharp\1task\obj\Debug\net6.0\BasicMvvmSample.genruntimeconfig.cache
 C:\Users\user\Documents\c_sharp\1task\obj\Debug\net6.0\ref\BasicMvvmSample.dll
+C:\Users\user\Documents\c_sharp\1task\obj\Debug\net6.0\BasicMvvmSample.sourcelink.json

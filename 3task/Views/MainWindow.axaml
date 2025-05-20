@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CandyProductionApp.ViewModels"
+        x:Class="CandyProductionApp.Views.MainWindow"
+        Title="Candy Production" Width="800" Height="600">
+  <Window.Resources>
+    <vm:EquipmentTemplateSelector x:Key="Tpl"/>
+  </Window.Resources>
+
+  <Window.DataContext>
+    <vm:MainViewModel/>
+  </Window.DataContext>
+
+  <DockPanel Margin="10">
+    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="8">
+      <Button Content="Add Factory" Command="{Binding AddFactoryCommand}"/>
+      <Button Content="Add Loader"  Command="{Binding AddLoaderCommand}"/>
+    </StackPanel>
+
+    <ScrollViewer>
+      <ItemsControl ItemsSource="{Binding Equipments}">
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border BorderThickness="1" CornerRadius="4" Padding="5" Margin="5">
+              <StackPanel>
+                <TextBlock Text="{Binding EquipmentName}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Status}"/>
+                <ContentControl Content="{Binding}" ContentTemplate="{StaticResource Tpl}"/>
+              </StackPanel>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+  </DockPanel>
+</Window>
